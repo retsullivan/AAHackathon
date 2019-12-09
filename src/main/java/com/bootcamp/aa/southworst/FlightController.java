@@ -1,5 +1,6 @@
 package com.bootcamp.aa.southworst;
 
+import com.bootcamp.aa.southworst.cache.ItineraryCache;
 import com.bootcamp.aa.southworst.models.ItineraryInfo;
 import com.bootcamp.aa.southworst.models.flight.FlightInfo;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +25,9 @@ public class FlightController {
 
     @GetMapping("/flights")
     public ItineraryInfo getAllFlights(@RequestParam String date, @RequestParam String origin, @RequestParam String destination) {
-        return flightRepository.getFlightsByDateAndLocations("2020-12-10", "DFW", "ORD");
+        ItineraryInfo itineraryInfo = flightRepository.getFlightsByDateAndLocations("2020-12-10", "DFW", "ORD");
+        ItineraryCache.addItemToCache(itineraryInfo);
+        return itineraryInfo;
     }
 
     @GetMapping("/starting-flights")
