@@ -1,8 +1,6 @@
 package com.bootcamp.aa.southworst;
 
-import com.bootcamp.aa.southworst.client.FlightsClient;
-import com.bootcamp.aa.southworst.models.FlightData;
-import org.springframework.stereotype.Controller;
+import com.bootcamp.aa.southworst.models.FlightInfo;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,8 +15,8 @@ public class FlightController {
     }
 
     @GetMapping("/flights")
-    public FlightData getAllFlights(@RequestParam String date, @RequestParam String origin, @RequestParam String destination) {
-        return flightRepository.getFlightsByDateAndLocations("2020-12-10", "DWW", "ORD");
+    public FlightInfo getAllFlights(@RequestParam String date, @RequestParam String origin, @RequestParam String destination) {
+        return flightRepository.getDummyData("2020-12-10", "DWW", "ORD");
     }
 
     //        @GetMapping(path="/all")

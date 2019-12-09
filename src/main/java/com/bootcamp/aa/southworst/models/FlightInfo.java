@@ -4,12 +4,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-public class FlightData {
+public class FlightInfo {
 
     private List<Segment> segments;
     private int totalTime;
 
-    public FlightData(List<Segment> segments, int totalTime) {
+    public FlightInfo(List<Segment> segments, int totalTime) {
         this.segments = segments;
         this.totalTime = totalTime;
     }
