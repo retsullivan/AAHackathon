@@ -22,10 +22,4 @@ public class FlightsClient {
                 FlightInfo[].class));
     }
 
-    private Map<String, Integer> uriVariables(int query) {
-        var variables = new HashMap<String, Integer>();
-        variables.put("query", query);
-        return variables;
-    }
-
 }
