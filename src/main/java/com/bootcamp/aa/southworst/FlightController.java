@@ -8,15 +8,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class FlightController {
 
-    FlightsClient flightsClient;
+    FlightRepository flightRepository;
 
-    public FlightController(FlightsClient flightsClient) {
-        this.flightsClient = flightsClient;
+    public FlightController(FlightRepository flightRepository) {
+        this.flightRepository = flightRepository;
     }
 
     @GetMapping("/")
     public String getAllFlights() {
-        return flightsClient.getFlights("2020-12-10");
+        return flightRepository.getFlightsByDateAndLocations("2020-12-10", "DWW", "ORD");
     }
 
     //        @GetMapping(path="/all")
