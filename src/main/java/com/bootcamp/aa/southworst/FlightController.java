@@ -32,6 +32,8 @@ public class FlightController {
         return flightRepository.getStartingFlights(date, origin);
     }
 
-
-
+    @GetMapping("/ending-flights")
+    public List<FlightInfo> getEndingFlights(@RequestParam String date, @RequestParam String destination) {
+        return flightRepository.getEndingFlights(date, destination);
+    }
 }

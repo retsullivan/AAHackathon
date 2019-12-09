@@ -34,6 +34,11 @@ public class FlightRepository {
         return data;
 
     }
+    public List<FlightInfo> getEndingFlights(String date, String destination) {
+        var data2 = flightsClient.getFlights(date).stream().filter(d -> d.getDestination().getCode().equals(destination))
+                .collect(Collectors.toList());
+        return data2;
+    }
 
     public ItineraryInfo getFlightsByDateAndLocations(String date, String origin, String destination) {
 
