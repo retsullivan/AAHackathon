@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.text.ParseException;
 import java.util.List;
 
 @RestController
@@ -36,4 +37,9 @@ public class FlightController {
     public List<FlightInfo> getEndingFlights(@RequestParam String date, @RequestParam String destination) {
         return flightRepository.getEndingFlights(date, destination);
     }
+    @GetMapping("/worst-trip")
+    public List<FlightInfo> getWorstTrip(@RequestParam String date, @RequestParam String origin, @RequestParam String destination) throws ParseException {
+        return flightRepository.getWorstTrip(date,origin,destination);
+    }
+
 }

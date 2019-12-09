@@ -26,4 +26,8 @@ public class Duration {
     public int getMinutes() {
         return minutes;
     }
+
+    public int getTotal(){
+        return minutes+ hours*60;
+    }
 }
