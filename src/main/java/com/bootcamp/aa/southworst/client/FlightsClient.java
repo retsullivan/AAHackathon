@@ -1,9 +1,12 @@
 package com.bootcamp.aa.southworst.client;
 
+import com.bootcamp.aa.southworst.models.flight.FlightInfo;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -14,9 +17,9 @@ public class FlightsClient {
         this.restTemplate = restTemplate;
     }
 
-    public String getFlights(String date) {
-        return restTemplate.getForObject("https://flight-engine.herokuapp.com/flights?date=" + date,
-                String.class);
+    public List<FlightInfo> getFlights(String date) {
+        return Arrays.asList(restTemplate.getForObject("https://flight-engine.herokuapp.com/flights?date=" + date,
+                FlightInfo[].class));
     }
 
     private Map<String, Integer> uriVariables(int query) {
