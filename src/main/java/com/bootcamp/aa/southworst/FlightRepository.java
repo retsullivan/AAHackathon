@@ -1,7 +1,12 @@
 package com.bootcamp.aa.southworst;
 
 import com.bootcamp.aa.southworst.client.FlightsClient;
+import com.bootcamp.aa.southworst.models.FlightData;
+import com.bootcamp.aa.southworst.models.Segment;
 import org.springframework.stereotype.Repository;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Repository
 public class FlightRepository {
@@ -12,8 +17,11 @@ public class FlightRepository {
         this.flightsClient = flightsClient;
     }
 
-    public String getFlightsByDateAndLocations(String date, String Origin, String Destination) {
-        return flightsClient.getFlights("2020-12-10");
+    public FlightData getFlightsByDateAndLocations(String date, String Origin, String Destination) {
+
+        var data = flightsClient.getFlights("2020-12-10");
+
+        return new FlightData(new ArrayList<Segment>(), 1700);
     }
 
 }
